@@ -9,6 +9,7 @@ public class Datatypes {
         double kg = 0.45359237d * pound;
         System.out.println("My pound value is: "+pound);
         System.out.println("My kg value is: "+kg);*/
-        
+        char mycharacter = '\u00AE';
+        System.out.println("My unicode is: "+mycharacter);
     }
 }
