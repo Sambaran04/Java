@@ -1,38 +1,38 @@
-import javax.print.DocPrintJob;
-
 public class Exercise {
     public static void main(String[] args) {
-        double feet=6;
-        double inch =13; 
-        double cm = calcFeetAndInchesToCentimeters(feet,inch);
-        if (cm != -1){
-            System.out.println(feet + " feet and " + inch + " inches equals: "+ cm + " Cm.");
+        long minutes = 61;
+        long seconds = 0;
+        long total = getDurationString(minutes, seconds);
+        long remainmin = total/60;
+        long remainsec = total%60;
+        long hour = remainmin/60;
+        remainmin = remainmin % 60;
+        if (total == -1){
+            System.out.println("Not a Valid Input");
+        }else{
+        System.out.println(minutes + " minutes and " + seconds + " seconds = " + hour+"h "+ remainmin+"m "+remainsec + "s");
         }
-        else
-            System.out.println("It's not a valid input.");
-        System.out.println(calcFeetAndInchesToCentimeters(-10));
     }
-    public static double calcFeetAndInchesToCentimeters(double feet, double inch) {
-        double centimeter = 0.0;
-        if (feet <0 || inch <0 || inch >12){
+    public static long getDurationString(long minutes, long seconds){
+        long total =0;
+        if (minutes <0 || seconds <0 || seconds >59){
             return -1;
-        }else if (feet==0 && inch >0){
-            centimeter = inch* 2.54;
-        }else if (feet >0 && inch == 0){
-            centimeter = feet*12*2.54;
-        }else if (feet >0 && inch >0 && inch <=12)
-        {
-            centimeter = feet*12.0*2.54+inch*2.54;
+        }else if (minutes==0 && seconds != 0){
+            total = seconds;
+        }else if (minutes >0 && seconds ==0){
+            total = minutes*60;
+        }else{
+            total = minutes*60 + seconds;
         }
-    return centimeter;
+        return total;
     }
-    public static double calcFeetAndInchesToCentimeters(double inches){
-        if (inches<0){
+    public static long getDurationString(long seconds) {
+        if (seconds <0){
             return -1;
         }
-        double feet = (int) inches/12;
-        double remaininginches = (int) inches%12;
-        System.out.println(inches + " is equal to "+ feet + " feet and " + remaininginches + " inches");
-    return calcFeetAndInchesToCentimeters(feet, remaininginches);
+        long minutes = seconds/60;
+        seconds = seconds %60;
+        System.out.println(seconds + " Seconds = " + minutes + " Minutes and " + seconds + " Seconds");
+    return getDurationString(minutes, seconds);
     }
 }

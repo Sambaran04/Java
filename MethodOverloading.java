@@ -1,6 +1,4 @@
-import javax.print.DocPrintJob;
-
-public class Exercise {
+public class MethodOverloading {
     public static void main(String[] args) {
         double feet=6;
         double inch =13; 
