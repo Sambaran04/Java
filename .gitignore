@@ -1,6 +1,5 @@
 *.class
 /.vscode/
-/.idea/
+.idea/
 *.iml
 out/
-src/
