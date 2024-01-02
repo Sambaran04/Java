@@ -16,13 +16,13 @@ public class IntersectionTwoArrays {
         HashSet<Integer> set = new HashSet<>();
         ArrayList<Integer> arr = new ArrayList<>();
 
-        for (int i = 0; i < m; i++) {
-            set.add(nums1[i]);
+        for (int k : nums1) {
+            set.add(k);
         }
-        for (int i = 0; i < n; i++) {
-            if (set.contains(nums2[i])) {
-                arr.add(nums2[i]);
-                set.remove(nums2[i]);
+        for (int j : nums2) {
+            if (set.contains(j)) {
+                arr.add(j);
+                set.remove(j);
             }
         }
         int[] ans = new int[arr.size()];
