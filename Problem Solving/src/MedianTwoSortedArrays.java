@@ -8,7 +8,7 @@ public class MedianTwoSortedArrays {
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int m = nums1.length;
         int n = nums2.length;
-        int[] arr = new int[m+n];
+        double[] arr = new double[m+n];
         int i=0;
         int j=0;
         int k=0;
@@ -31,10 +31,8 @@ public class MedianTwoSortedArrays {
             k++; j++;
         }
         if((m+n)%2 ==0){
-            return ((double) arr[(arr.length/2)-1] + (double) arr[(arr.length / 2)]) /2;
+            return (arr[(arr.length/2)-1] + arr[(arr.length / 2)]) /2;
         }
-        else{
-            return (double) arr[(arr.length / 2)];
-        }
+        else return arr[(arr.length / 2)];
     }
 }
