@@ -30,8 +30,8 @@ public class MedianTwoSortedArrays {
             arr[k]=nums2[j];
             k++; j++;
         }
-        if((m+n)%2 ==0){
-            return (arr[(arr.length/2)-1] + arr[(arr.length / 2)]) /2;
+        if((m+n)%2 ==0) {
+            return (arr[(arr.length / 2) - 1] + arr[(arr.length / 2)]) / 2;
         }
         else return arr[(arr.length / 2)];
     }
