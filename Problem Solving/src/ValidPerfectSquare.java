@@ -4,14 +4,20 @@ public class ValidPerfectSquare {
         System.out.println(isPerfectSquare(n));
     }
     public static boolean  isPerfectSquare(int num) {
-        if (num < 2){
-            return true;
-        }
-        for (int i = 2; i < num/2; i++) {
-            if ((i*i)==num){
+        long high = 10000000;
+        long low = 1;
+        long mid;
+        long sq;
+
+        while(low<=high){
+            mid = low+(high-low)/2;
+            sq = mid*mid;
+            if(sq==num){
                 return true;
-            } else if ((i*i) > num){
-                return false;
+            }else if(sq>num){
+                high =mid-1;
+            }else{
+                low = mid+1;
             }
         }
         return false;
