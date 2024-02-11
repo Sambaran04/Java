@@ -1,5 +1,5 @@
 import java.util.Arrays;
-
+// In this question matrix is fully sorted...
 public class Search2DMatrix {
     public static void main(String[] args) {
         int[][] arr = {
@@ -7,7 +7,7 @@ public class Search2DMatrix {
                 {4, 5, 6},
                 {7, 8, 9}
         };
-        System.out.println(Arrays.toString(search(arr, 10)));
+        System.out.println(Arrays.toString(search(arr, 5)));
     }
 
     // search in the row provided between the cols provided
