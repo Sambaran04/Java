@@ -4,6 +4,7 @@ public class aPowerOfb {
         int base=2;
         int ans = 1;
 
+
         while(power>0){
             if ((power & 1) ==1){
                 ans *=base;
