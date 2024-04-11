@@ -1,5 +1,9 @@
 public class PowerOfFour {
-    public boolean isPowerOfFour(int n) {
+    public static void main(String[] args) {
+        long n = 16;
+        System.out.println(isPowerOfFour(n));
+    }
+    public static boolean isPowerOfFour(int n) {
         boolean flag=false;
         if(n==1){
             return true;
