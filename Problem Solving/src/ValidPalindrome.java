@@ -3,6 +3,7 @@ public class ValidPalindrome {
         String s = "A man, a plan, a canal: Panama";
         System.out.println(isPalindrome(s));
     }
+//    Check for valid palindrome sentence
     public static boolean isPalindrome(String s) {
         s = s.toLowerCase().replaceAll("[^A-Za-z0-9]","");
         int i=0;
