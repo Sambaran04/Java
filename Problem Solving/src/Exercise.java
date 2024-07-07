@@ -1,17 +1,19 @@
 public class Exercise {
     public static void main(String[] args) {
-        int num =4;
-        System.out.println(isPerfectSquare(num));
+        int num =121;
+        System.out.println(isPalindrome(num));
     }
-    public static boolean  isPerfectSquare(int num) {
-        if(num <=1){
-            return true;
-        }
-        for(int i=2; i<=num/2; i++){
-            if((i*i)==num){
-                return true;
+    public static boolean isPalindrome(int x) {
+        String a = Integer.toString(x);
+        int i=0;
+        int j = a.length()-1;
+        while(i<j){
+            if(a.charAt(i) != a.charAt(j)){
+                return false;
             }
+            i++;
+            j--;
         }
-        return false;
+        return true;
     }
 }
