@@ -1,7 +1,7 @@
 public class MissingNumber {
     public static void main(String[] args) {
         int[] nums = {3, 0, 1};
-        System.out.println(missingNumber1(nums));
+        System.out.println(missingNumber2(nums));
     }
     public static int missingNumber1(int[] arr){
         int i=0;
@@ -25,16 +25,12 @@ public class MissingNumber {
         arr[end] = temp;
     }
 
-    public int missingNumber2(int[] nums) {
+    public static int missingNumber2(int[] nums) {
         int sum1=0;
-        int sum2=0;
-        int n = nums.length;
-        for(int i=0; i<=n; i++){
-            sum1 += i;
-        }
+        int n=nums.length;
         for (int num : nums) {
-            sum2 += num;
+            sum1 += num;
         }
-        return (sum1-sum2);
+        return ((n*(n+1)/2)-sum1);
     }
 }
