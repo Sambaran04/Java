@@ -16,17 +16,17 @@ public class MajorityElement {
         }
     }
     public int majorityElement(int[] nums) {
-        int major = nums[0], vote=1;
+        int element = nums[0], count=1;
         for(int i=1; i<nums.length; i++){
-            if(vote==0){
-                vote++;
-                major = nums[i];
-            }else if(major == nums[i]){
-                vote++;
+            if(count==0){
+                count++;
+                element = nums[i];
+            }else if(element == nums[i]){
+                count++;
             }else{
-                vote--;
+                count--;
             }
         }
-        return major;
+        return element;
     }
 }
