@@ -1,4 +1,7 @@
 public class FloorBST {
+    public static void main(String[] args) {
+
+    }
     public static int floor(TreeNode root, int x) {
         if(root==null){
             return -1;
