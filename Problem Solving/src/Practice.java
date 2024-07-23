@@ -1,11 +1,30 @@
 import java.security.KeyPair;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Stack;
 
 public class Practice {
     public static void main(String[] args) {
-        int[] arr = {10, 20, 30, 40, 50};
-        int K = 10;
-//        System.out.println(binary(arr, 0, arr.length - 1, K));
+        String s = "{[]}";
+        System.out.println(isValid(s));
+    }
+    public static boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+
+        for (char c: s.toCharArray()){
+            if(c=='('){
+                stack.push(')');
+            }
+            else if(c=='{'){
+                stack.push('}');
+            }
+            else if (c=='['){
+                stack.push(']');
+            }else if ((c != stack.pop()) || !stack.isEmpty()){
+                return false;
+            }
+        }
+        return true;
     }
 }
