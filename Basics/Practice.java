@@ -2,33 +2,40 @@ import java.util.Arrays;
 
 public class Practice {
     public static void main(String[] args) {
-        int[] arr = {2, 4, 1, 3, 5};
-        int index=-1;
-        int max=0;
-        for(int i=0; i<arr.length; i++){
-            if(arr[i]>max){
-                max = arr[i];
-                index = i;
-            }
+        int[] arr = {1,2};
+        Node head = constructLL(arr);
+        System.out.println(middleNode(head));
+    }
+    public static Node constructLL(int arr[]) {
+        Node head = new Node(arr[0]);
+        Node temp = head;
+        for(int i=1; i<arr.length; i++){
+            temp.next = new Node(arr[i]);
+            temp = temp.next;
         }
-        arr[index] = 0;
-        index=-1;
-        max=0;
-        for(int i=0; i<arr.length; i++){
-            if(arr[i]>max){
-                max = arr[i];
-                index = i;
-            }
+        return head;
+    }
+    public static int middleNode(Node head) {
+        Node temp = head;
+        Node ans = head;
+        int count=1;
+        int mid=0;
+        while(temp.next!=null){
+            count++;
+            temp = temp.next;
         }
-        arr[index] = 0;
-        index=-1;
-        max=0;
-        System.out.println(Arrays.toString(arr));
-        for(int i=0; i<arr.length; i++){
-            if(arr[i]>max){
-                max = arr[i];
+//        return count;
+        temp = head;
+        mid = (count/2)+1;
+        count=1;
+        while(temp.next!=null){
+            count++;
+            if(count == mid){
+                ans = temp;
+                break;
             }
+            temp = temp.next;
         }
-        System.out.println(max);
+        return mid;
     }
 }
