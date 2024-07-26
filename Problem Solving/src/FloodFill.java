@@ -9,7 +9,7 @@ public class FloodFill {
         int cols = image[0].length;
         int init = image[sr][sc];
         Queue<Pair> q = new LinkedList<>();
-        q.add(new Pair(sr, sc));
+        q.add(new Pair(sr, sc, -1));
         image[sr][sc] = color;
 
         int[] drow = {-1, 0, 1, 0};
@@ -23,7 +23,7 @@ public class FloodFill {
                 int ncol = c + dcol[i];
                 if (nrow >= 0 && ncol >= 0 && nrow < rows && ncol < cols && image[nrow][ncol] == init) {
                     image[nrow][ncol] = color;
-                    q.add(new Pair(nrow, ncol));
+                    q.add(new Pair(nrow, ncol, -1));
                 }
             }
         }
@@ -49,14 +49,5 @@ public class FloodFill {
                 dfs(nrow, ncol, vis, image, drow, dcol, color, init);
             }
         }
-    }
-}
-public class Pair{
-    public int row;
-    public int col;
-
-    public Pair(int row, int col) {
-        this.row = row;
-        this.col = col;
     }
 }
