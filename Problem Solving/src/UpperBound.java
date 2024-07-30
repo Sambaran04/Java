@@ -20,7 +20,6 @@ public class UpperBound {
                 right = mid - 1;
             }
         }
-
         return ceilIndex;
     }
 }
