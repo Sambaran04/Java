@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class TwoSum {
 
@@ -8,19 +9,14 @@ public class TwoSum {
         System.out.println(Arrays.toString(twoSum(nums, target)));
     }
     public static int[] twoSum(int[] nums, int target){
-        int start=0;
-        int end = nums.length-1;
-        while(start<end) {
-            int sum = nums[start] + nums[end];
-
-            if (sum > target) {
-                end--;
-            } else if (sum < target) {
-                start++;
-            } else {
-                return new int[]{start+1, end};
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int remain = target - nums[i];
+            if (map.containsKey(remain)){
+                return new int[] {i, map.get(remain)};
             }
+            map.put(nums[i], i);
         }
-        return new int[] {};
+        return new int[] {-1, -1};
     }
 }
