@@ -2,6 +2,8 @@ package com.sambaran;
 
 import java.util.Arrays;
 
+import static com.sambaran.Swap.swap;
+
 public class BubbleSort {
     public static void main(String[] args) {
         int[] arr = {5, 4, 3, 2, 1};
@@ -14,9 +16,7 @@ public class BubbleSort {
             int count =0;
             for (int j = 1; j < arr.length-i; j++) {
                 if (arr[j]<arr[j-1]){
-                    int temp = arr[j-1];
-                    arr[j-1] = arr[j];
-                    arr[j] = temp;
+                    swap(arr, j-1, j);
                     count++;
                 }
             }
