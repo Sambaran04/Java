@@ -2,6 +2,8 @@ package com.sambaran;
 
 import java.util.Arrays;
 
+import static com.sambaran.Swap.swap;
+
 public class CyclicSort {
     public static void main(String[] args) {
         int[] arr = {5, 4, 3, 2, 1};
@@ -18,10 +20,5 @@ public class CyclicSort {
                 swap(arr, correct, i);
             }else i++;
         }
-    }
-    public static void swap(int[] arr, int start, int end){
-        int temp = arr[start];
-        arr[start] = arr[end];
-        arr[end] = temp;
     }
 }
