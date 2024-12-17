@@ -16,11 +16,7 @@ public class Subsets {
     }
     public static void subset(int ind, List<Integer> arr, int[] nums, int n, List<List<Integer>> ans){
         if (ind==n){
-            List<Integer> val = new ArrayList<>();
-            for (Integer it:arr){
-                val.add(it);
-            }
-            ans.add(val);
+            ans.add(new ArrayList<>(arr));
             return;
         }
         subset(ind+1, arr, nums, n, ans);

@@ -14,9 +14,9 @@ public class QuickSort {
 
     public static void quickSort(int[] arr, int l, int r) {
         if (l < r) {
-            int q = hoar(arr, l, r);
-            quickSort(arr, l, q); // for Hoar Method
-//            quickSort(arr, l, q-1); // For Lomuto Method
+            int q = lomuto(arr, l, r);
+//            quickSort(arr, l, q); // for Hoar Method
+            quickSort(arr, l, q-1); // For Lomuto Method
             quickSort(arr, q + 1, r);
         }
     }

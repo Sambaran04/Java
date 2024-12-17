@@ -1,24 +1,20 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class Practice {
     public static void main(String[] args) {
-        int[] arr = {3, 2, 1, 5, 4, 6, 8, 7};
-        System.out.println(Arrays.toString(arr));
-        cyclic(arr);
-        System.out.println(Arrays.toString(arr));
-    }
-
-    public static void cyclic(int[] arr){
-        for (int i = 0; i < arr.length; i++) {
-            int correct = arr[i]-1;
-            if (arr[correct]!=arr[i]){
-                swap(arr, correct, i);
+        int[] arr = {1, 2, 10, 5, 2, 11, 15, 20, 6, 17, 21};
+        int max = Integer.MIN_VALUE;
+        int max2 = Integer.MIN_VALUE;
+        for (int j : arr) {
+            if (j > max) {
+                max2 = max;
+                max = j;
+            } else if (j > max2 && j != max) {
+                max2 = j;
             }
         }
-    }
-    public static void swap(int[] arr, int i, int j){
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+        System.out.println(Arrays.toString(arr));
+        System.out.println("Maximum element is: "+max);
+        System.out.println("2nd Maximum element is: "+max2);
     }
 }

@@ -1,59 +1,41 @@
 package com.sambaran;
 
-import java.util.Arrays;
-
 import static com.sambaran.Swap.swap;
-
+import java.util.Arrays;
 public class Practice {
     public static void main(String[] args) {
-//        int[] arr = {5, 4, 3, 2, 1};
-//        System.out.println("Array before sorting: " + Arrays.toString(arr));
-//        mergeSort(arr, 0, arr.length - 1);
-//        System.out.println("Array after sorting: " + Arrays.toString(arr));
-        System.out.println((int) 'a');
+        int[] arr = {5, 4, 3, 2, 1};
+        System.out.println("Array before sorting: " + Arrays.toString(arr));
+//        insertion(arr);
+//        selection(arr);
+//        bubble(arr);
+//        mergeSort(arr, 0, arr.length-1);
+        quickSort(arr, 0, arr.length-1);
+        System.out.println("Array after sorting: " + Arrays.toString(arr));
+//        System.out.println((int) 'a');
     }
-
-    public static void mergeSort(int[] arr, int left, int right) {
-        if (left < right) {
-            int mid = left + (right - left) / 2;
-            mergeSort(arr, left, mid);
-            mergeSort(arr, mid + 1, right);
-            merge(arr, left, mid, right);
-        }
-    }
-
-    public static void merge(int[] arr, int low, int mid, int high) {
-        int ls = mid - low + 1;
-        int rs = high - mid;
-        int[] left = new int[ls];
-        int[] right = new int[rs];
-        for (int i = 0; i < ls; i++) {
-            left[i] = arr[low + i];
-        }
-        for (int i = 0; i < rs; i++) {
-            right[i] = arr[mid + i + 1];
-        }
-        int i = 0, j = 0, k = low;
-        while (i < ls && j < rs) {
-            if (left[i] <= right[j]) {
-                arr[k] = left[i];
+    public static int partition(int[] arr, int l, int r){
+        int pivot = arr[l];
+        int i = l-1;
+        int j=r+1;
+        while(true) {
+            do {
                 i++;
-                k++;
-            } else {
-                arr[k] = right[j];
-                j++;
-                k++;
+            } while (arr[i] < pivot);
+            do {
+                j--;
+            } while (arr[j] > pivot);
+            if (i >= j) {
+                return j;
             }
+            swap(arr, i, j);
         }
-        while (i < ls) {
-            arr[k] = left[i];
-            i++;
-            k++;
-        }
-        while (j < rs) {
-            arr[k] = right[j];
-            j++;
-            k++;
+    }
+    public static void quickSort(int[] arr, int l, int r){
+        if(l<r){
+            int p = partition(arr, l, r);
+            quickSort(arr, l, p);
+            quickSort(arr, p+1, r);
         }
     }
 }
