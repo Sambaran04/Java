@@ -1,41 +1,39 @@
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
 
 public class Practice {
-    public static void main(String[] args) {
-        int[] arr = {1,2};
-        Node head = constructLL(arr);
-        System.out.println(middleNode(head));
-    }
-    public static Node constructLL(int arr[]) {
-        Node head = new Node(arr[0]);
-        Node temp = head;
-        for(int i=1; i<arr.length; i++){
-            temp.next = new Node(arr[i]);
-            temp = temp.next;
+    public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the length of the array: ");
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        System.out.print("Enter the value of the array: ");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
         }
-        return head;
+        System.out.print("Enter the value of K: ");
+        int k = scanner.nextInt();
+        System.out.print(Arrays.toString(twoSum(arr, k)));
     }
-    public static int middleNode(Node head) {
-        Node temp = head;
-        Node ans = head;
-        int count=1;
-        int mid=0;
-        while(temp.next!=null){
-            count++;
-            temp = temp.next;
-        }
-//        return count;
-        temp = head;
-        mid = (count/2)+1;
-        count=1;
-        while(temp.next!=null){
-            count++;
-            if(count == mid){
-                ans = temp;
-                break;
+
+    public static int[] twoSum(int[] arr, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            int val = target-arr[i];
+            if (map.containsKey(val)){
+                return new int[] {map.get(val), i};
+            }else{
+                map.put(arr[i], i);
             }
-            temp = temp.next;
         }
-        return mid;
+        return new int[0];
+    }
+
+    public static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }
