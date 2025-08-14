@@ -2,7 +2,8 @@ package com.sambaran;
 
 import java.util.Arrays;
 
-import static com.sambaran.Swap.swap;
+//import static com.sambaran.Swap.swap;
+import com.sambaran.Swap.*;
 
 public class BubbleSort {
     public static void main(String[] args) {
